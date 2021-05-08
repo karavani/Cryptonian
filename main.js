@@ -78,7 +78,9 @@ function loadAllCoins() {
                     loadingGif.style = "width : 50%";
                     loadingGif.style = "height : 40%";
                     let thisDiv = $(this).parent();
-                    thisDiv.append(loadingGif);
+                    if (thisDiv.children().length == 8) {
+                        thisDiv.append(loadingGif);
+                    }
                     let thisBtn = $(this);
                     $.get("https://api.coingecko.com/api/v3/coins/" + $(this).parent().attr('id')).then(
                         function (data) {
